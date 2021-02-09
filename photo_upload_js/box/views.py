@@ -17,3 +17,12 @@ def image_upload_view(request):
     return JsonResponse({'get':'not allowed'})
     # return HttpResponse('upload')
 
+
+############ POST SHOW @@@@
+class PhotoShowListView(TemplateView):
+    template_name = 'box/gallery.html'
+
+def photo_list(request):
+    data = list(BoxforImage.objects.values())
+    return JsonResponse(data,safe=False)
+

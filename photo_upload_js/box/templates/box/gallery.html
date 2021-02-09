@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+
+{%block content %}
+
+<div class="card">
+    <div class="card-header text-center">
+        <h4>ALL MEDIA</h4>
+        <div id="spinnerBox" class="spinner-border text-info" role="status">
+           
+        </div>
+    </div>
+    <div id="dataBox" class="card-body">
+        <!-- <img src="" alt="" class="card-img-top"> -->
+    </div>
+</div>
+
+{%endblock%}
+
+{%block script%}
+<script>
+    console.log('okok')
+    const spinnerBox = document.getElementById('spinnerBox')
+
+    const dataBox = document.getElementById('dataBox')
+    
+    //ajax//http://127.0.0.1:8000/media/
+    const url = 'http://127.0.0.1:8000/media/'
+    $.ajax({
+        type:'GET',
+        url:'/box/list/json/',
+        success: function(response){
+            setTimeout(()=>{
+                spinnerBox.classList.add('d-none')
+
+                for (const item of response){
+                    dataBox.innerHTML += `<img src='${url}${item.upload}' class='card-img-top'>`
+                }
+                console.log(response)
+            },5000)
+
+            
+        },
+        error:function(error){
+            setTimeout(()=>{
+                spinnerBox.classList.add('d-none')
+                dataBox.innerHTML += `<b> Failed to load</b>`
+            },5000)
+            console.log(error)
+        }
+    })
+</script>
+{%endblock%}
