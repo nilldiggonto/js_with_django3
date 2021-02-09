@@ -2,5 +2,18 @@
 
 
 {%block content%}
-    <h1>Main page</h1>
+<div class="card">
+    <div class="card-header text-center bg-primary text-light">
+        <h4>DROP YOUR IMAGES</h4>
+    </div>
+
+    <div class="card-body">
+        <form action="upload/" method="POST" class="dropzone" id="new-dropzone">
+            {%csrf_token%}
+            <div class="fallback">
+                <input name="file" type="file" multiple />
+            </div>
+        </form>
+    </div>
+</div>
 {%endblock%}
