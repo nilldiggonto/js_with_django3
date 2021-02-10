@@ -1,15 +1,28 @@
 {%extends 'base.html' %}
-
+{% load crispy_forms_tags %}
 {%block content %}
 
 <div class="container">
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <div class="card-header text-center bg-primary text-light">
-                <h4>POST SOMETHING</h4>
-            </div>
-            <div class="card-body">
+            <div class="card">
+                <div class="card-header text-center bg-primary text-light">
+                    <h4>POST SOMETHING</h4>
+                </div>
+                <div id="alert-box"></div>
+                <!--alertBox-->
+                <div id="img-box"></div>
+                <!--imgBox-->
+                <div class="card-body ">
+                    <form id="p-form" action="" method="POST">
+                        {%csrf_token%}
+                        {% crispy form %}
 
+                        <button class="btn btn-sm btn-block btn-success" type="submit">POST</button>
+                        <!-- {{bootstrap_form}} -->
+
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -21,6 +34,27 @@
 
 <script>
     console.log('ajax form page')
+
+    const alertBox = document.getElementById('alert-box')
+    const imgBox = document.getElementById('img-box')
+    const form = document.getElementById('p-form')
+
+    console.log(form)
+
+    const title = document.getElementById('id_title')
+    const content = document.getElementById('id_content')
+    const image = document.getElementById('id_image')
+    const csrf  = document.getElementsByName('csrfmiddlewaretoken')
+    // console.log(csrf)
+    const url = ""
+
+    console.log(image)
+    image.addEventListener('change',(e)=>{
+        const img_data  = image.files[0]
+        const url   = URL.createObjectURL(img_data)
+        console.log(url)
+    })
+
 </script>
 
 {% endblock%}

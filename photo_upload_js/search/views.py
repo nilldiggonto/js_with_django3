@@ -1,8 +1,10 @@
 from django.shortcuts import render
-from .models import TestSearch
+from .models import TestSearch,PostUp
 # Create your views here.
 from django.views.generic import ListView
 import json
+from .forms import PostUpForm
+
 
 class SearchListView(ListView):
     model = TestSearch
@@ -18,7 +20,9 @@ class SearchListView(ListView):
 #POST WITH PHOTO UPLOAD VIEW
 def post_with_photo_view(request):
     template_name = 'search/post_up.html'
+    form = PostUpForm(request.POST or None,request.FILES or None)
     context = {
+        'form':form,
 
     }
     return render(request,template_name,context)

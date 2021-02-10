@@ -30,7 +30,12 @@ INSTALLED_APPS = [
 
     'box',
     'search',
+    'crispy_forms',
+    # 'django-bs4',
+    # 'django.forms',
 ]
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+# FORM_RENDERER = 'django.forms.renderers.TemplatesSetting'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
