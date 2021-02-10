@@ -17,3 +17,18 @@
     </div>
 </div>
 {%endblock%}
+
+
+{%block script%}
+    
+<script>
+    Dropzone.autoDiscover = false;
+
+    const newDropZone = new Dropzone("#new-dropzone", {
+        url: "upload/",
+        maxFiles: 5,
+        maxFilesize: 2,
+        acceptedFiles: '.png,.jpg'
+    })
+</script>
+{%endblock%}

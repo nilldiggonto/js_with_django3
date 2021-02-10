@@ -23,16 +23,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     {%block script %} {%endblock%}
 
-    <script>
-        Dropzone.autoDiscover = false;
-
-        const newDropZone = new Dropzone("#new-dropzone", {
-            url: "upload/",
-            maxFiles: 5,
-            maxFilesize: 2,
-            acceptedFiles: '.png,.jpg'
-        })
-    </script>
 </body>
 
 </html>
