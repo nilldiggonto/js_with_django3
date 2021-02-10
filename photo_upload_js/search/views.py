@@ -12,3 +12,13 @@ class SearchListView(ListView):
         context = super().get_context_data(**Kwargs)
         context['json_data']= json.dumps(list(TestSearch.objects.values()))
         return context
+
+
+
+#POST WITH PHOTO UPLOAD VIEW
+def post_with_photo_view(request):
+    template_name = 'search/post_up.html'
+    context = {
+
+    }
+    return render(request,template_name,context)
