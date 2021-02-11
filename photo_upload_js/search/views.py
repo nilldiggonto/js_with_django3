@@ -4,7 +4,7 @@ from .models import TestSearch,PostUp
 from django.views.generic import ListView
 import json
 from .forms import PostUpForm
-
+from django.http import JsonResponse
 
 class SearchListView(ListView):
     model = TestSearch
@@ -21,6 +21,15 @@ class SearchListView(ListView):
 def post_with_photo_view(request):
     template_name = 'search/post_up.html'
     form = PostUpForm(request.POST or None,request.FILES or None)
+    data = {}
+
+    if request.is_ajax():
+        print('abc')
+        if form.is_valid():
+            form.save()
+            data['title'] = form.cleaned_data.get('title')
+            data['status']='ok'
+            return JsonResponse(data)
     context = {
         'form':form,
 
