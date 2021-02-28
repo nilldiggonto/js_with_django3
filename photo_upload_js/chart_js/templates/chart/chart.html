@@ -32,6 +32,13 @@
 {%block script %}
 
 <script>
+
+    const a = `{{month}}`
+    const b = `{{salary}}`
+    const rdata = a.replace(/&#x27;/g, '"')
+    const sdata = b.replace(/&#x27;/g, '')
+    console.log(rdata)
+    console.log(sdata)
     $(document).ready(function(){
         var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {

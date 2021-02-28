@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from .models import Salary
 
+from django.http import JsonResponse
+
 
 # Create your views here.
 def chatView(request):
