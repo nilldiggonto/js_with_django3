@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'box',
     'search',
     'crispy_forms',
+    'chart_js',
     # 'django-bs4',
     # 'django.forms',
 ]
@@ -116,7 +117,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
+STATICFILES_DIRS = [BASE_DIR / 'photo_upload_js/my_static']
+
+STATIC_ROOT = Path(BASE_DIR,'static/')
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
