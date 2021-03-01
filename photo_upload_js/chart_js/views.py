@@ -25,3 +25,21 @@ def chatView(request):
     print(context['month'])
 
     return render(request,template_name,context)
+
+
+
+def dynamic_chartView(request):
+
+    # def connect(self):
+    #     self.accept()
+
+    # for i in range(1000):
+    #     self.send(json.dumps({'value':randint(-20,20)}))
+
+    template_name = 'chart/dynamic.html'
+
+    context = {
+
+    }
+
+    return render(request,template_name,context)

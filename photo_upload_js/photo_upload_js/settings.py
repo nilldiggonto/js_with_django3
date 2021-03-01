@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'search',
     'crispy_forms',
     'chart_js',
+    'channels',
     # 'django-bs4',
     # 'django.forms',
 ]
@@ -67,6 +68,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'photo_upload_js.wsgi.application'
+ASGI_APPLICATION = 'photo_upload_js.asgi.application'
+
 
 
 # Database
