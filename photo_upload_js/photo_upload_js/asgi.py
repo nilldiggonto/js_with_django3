@@ -9,15 +9,15 @@ https://docs.djangoproject.com/en/3.1/howto/deployment/asgi/
 
 import os
 
-from django.core.asgi import get_asgi_application
 from channels.routing import ProtocolTypeRouter,URLRouter
-# from photo_upload_js.chart_js.routing import ws_urlpatterns
+from django.core.asgi import get_asgi_application
+from chart_js.routing import ws_urlpatterns
 from channels.auth import AuthMiddlewareStack
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'photo_upload_js.settings')
 
 application = ProtocolTypeRouter({
     'http':get_asgi_application(),
-    # 'websocket': AuthMiddlewareStack(URLRouter(ws_urlpatterns))
+    'websocket': AuthMiddlewareStack(URLRouter(ws_urlpatterns))
 })
 

@@ -6,6 +6,12 @@ class GraphConsumer(WebsocketConsumer):
     def connect(self):
         self.accept()
 
-        for i in range(1000):
-            self.send(json.dumps({'valiue':randint(-20,20)}))
+        for i in range(10):
+            self.send(json.dumps({'a':randint(0,100)}))
+            
+
             sleep(1)
+
+        # for i in range(10):
+        #     self.send(json.dumps({'a':randint(0,100)}))
+        #     sleep(1)
