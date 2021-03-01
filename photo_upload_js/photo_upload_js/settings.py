@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'chart_js',
     'channels',
+    'app_js',
     # 'django-bs4',
     # 'django.forms',
 ]
