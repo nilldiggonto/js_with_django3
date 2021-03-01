@@ -8,6 +8,7 @@ urlpatterns = [
     path('box/',include('box.urls')),
     path('search/',include('search.urls')),
     path('chart/',include('chart_js.urls')),
+    path('js/',include('app_js.urls')),
 ]
 
 urlpatterns += static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)
